@@ -3,6 +3,8 @@
 ## Requirements
 * python3.8
   * selenium==3.141.0
+* chrome
+  * chromedriver
   
 ## How to use
 1. clone project
