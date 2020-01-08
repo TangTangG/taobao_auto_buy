@@ -20,5 +20,16 @@ pip3 install selenium==3.141.0
 ```
 python3 taobao.py
 ```
+## Configuration
+### config.json
+```
+{
+ "main_url" : "https://www.taobao.com/",
+ "target_url" : "",
+ "amount_to_buy" : 1,
+ "prop_check_list" : [0,0],
+ "buy_time" : "2020-01-08 12.00.00"
+}
+```
 ## Noticed
 * star if you like this project
