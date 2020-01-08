@@ -1,10 +1,10 @@
 # taobao_auto_buy
 
-# Requirements
+## Requirements
 * python3.8
   * selenium==3.141.0
   
-# How to use
+## How to use
 1. clone project
 ```
 git@github.com:Jesseslco/taobao_auto_buy.git
