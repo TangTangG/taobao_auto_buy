@@ -35,3 +35,4 @@ python3 taobao.py
 ```
 ## Noticed
 * star if you like this project
+* for any problem, please raise a issue
