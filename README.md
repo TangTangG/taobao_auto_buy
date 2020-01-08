@@ -5,13 +5,12 @@
   * selenium==3.141.0
   
 # How to use
-### clone project
-1. clone the project to local dir
-### install python3.8
-2. install python3.8 
-### install requirements
-3. pip3 install selenium==3.141.0
-### configure config.json
-4. configure the config.json
-### run
-5. Run: taobao.py
+1.clone project
+`git@github.com:Jesseslco/taobao_auto_buy.git`
+2.install python3.8
+3.install requirements
+`pip3 install selenium==3.141.0`
+4.download chromedriver
+5.configure config.json
+6.run
+`python3 taobao.py`
