@@ -20,3 +20,5 @@ pip3 install selenium==3.141.0
 ```
 python3 taobao.py
 ```
+## Noticed
+* star if you like this project
