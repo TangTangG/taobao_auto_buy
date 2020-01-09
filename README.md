@@ -16,7 +16,7 @@ git@github.com:Jesseslco/taobao_auto_buy.git
 ```
 pip3 install selenium==3.141.0
 ```
-4. download chromedriver
+4. download chrome and chromedriver
 5. configure config.json
 6. run
 ```
