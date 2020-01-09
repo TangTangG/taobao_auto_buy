@@ -73,7 +73,9 @@ class TaoBao(object):
 
     def prop_check(self, table):
         
-        props = table.find_elements_by_xpath("./dl[contains(@class, 'tm-sale-prop')]")
+        props = table.find_elements_by_xpath("./dl[contains(@class, 'tm-sale-prop') or contains(@class, 'tm-relate-wrapper')]")
+        for i in props:
+            print(i.get_attribute("class"))
 
         print(f"props: {len(props)}")
         print(f"list: {self.prop_check_list}")
