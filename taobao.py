@@ -9,6 +9,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.common.by import By
+import random
+
 class TaoBao(object):
 
     num_instance = 0
@@ -42,7 +44,7 @@ class TaoBao(object):
         self.goto_detail()
         self.get_table()
         if self.table is not None:
-            self.input_form()
+            # self.input_form()
             self.wait_for_shop()
         else:
             logging.error(f"error: -> can't get table")
@@ -71,42 +73,42 @@ class TaoBao(object):
 
         self.browser.get(self.target_url)
 
-    def prop_check(self, table):
+    # def prop_check(self, table):
         
-        props = table.find_elements_by_xpath("./dl[contains(@class, 'tm-sale-prop') or contains(@class, 'tm-relate-wrapper')]")
-        for i in props:
-            print(i.get_attribute("class"))
+    #     props = table.find_elements_by_xpath("./dl[contains(@class, 'tm-sale-prop') or contains(@class, 'tm-relate-wrapper')]")
+    #     for i in props:
+    #         print(i.get_attribute("class"))
 
-        print(f"props: {len(props)}")
-        print(f"list: {self.prop_check_list}")
-        assert len(props) == len(self.prop_check_list)
-        logging.info("working right")
+    #     print(f"props: {len(props)}")
+    #     print(f"list: {self.prop_check_list}")
+    #     assert len(props) == len(self.prop_check_list)
+    #     logging.info("working right")
 
-        for i in zip(props, self.prop_check_list):
-            i[0].find_elements_by_xpath(".//li")[i[1]].click()
+    #     for i in zip(props, self.prop_check_list):
+    #         i[0].find_elements_by_xpath(".//li")[i[1]].click()
 
-    def amount_check(self, table):
+    # def amount_check(self, table):
 
-        amount = table.find_element_by_xpath("./dl[contains(@class, 'tb-amount')]").find_element_by_xpath(".//input[@type='text']")
-        amount.send_keys(Keys.CONTROL + "a")
-        amount.send_keys(Keys.DELETE)
-        amount.send_keys(self.amount_to_buy)
+    #     amount = table.find_element_by_xpath("./dl[contains(@class, 'tb-amount')]").find_element_by_xpath(".//input[@type='text']")
+    #     amount.send_keys(Keys.CONTROL + "a")
+    #     amount.send_keys(Keys.DELETE)
+    #     amount.send_keys(self.amount_to_buy)
 
-    def plan_check(self, table):
+    # def plan_check(self, table):
         
-        if self.plan_to_buy is None:
-            pass
-        else:
-            plans = table.find_element_by_id("J_Progressive")
-            plans.find_elements_by_xpath(".//li")[self.plan_to_buy].click()
+    #     if self.plan_to_buy is None:
+    #         pass
+    #     else:
+    #         plans = table.find_element_by_id("J_Progressive")
+    #         plans.find_elements_by_xpath(".//li")[self.plan_to_buy].click()
 
 
 
-    def input_form(self):
+    # def input_form(self):
 
-        self.prop_check(self.table)
-        self.amount_check(self.table)
-        self.plan_check(self.table)
+    #     self.prop_check(self.table)
+    #     self.amount_check(self.table)
+    #     self.plan_check(self.table)
         
     def wait_until_load(self, selector_text):
 
@@ -124,6 +126,7 @@ class TaoBao(object):
                 self.table.find_element_by_id("J_LinkBuy").click()
             except:
                 pass
+            time.sleep(random.randrange(0, 0.5))
 
         self.sumit_order() 
 
@@ -137,6 +140,7 @@ class TaoBao(object):
             except:
                 pass
 
+            time.sleep(random.randrange(0, 0.5))
     @classmethod
     def count(cls):
         
@@ -150,8 +154,6 @@ class TaoBao(object):
            if now > self.buy_time:
                 self.buy()
             
-           #time.sleep(0.1)
-        
     def close(self):
         self.browser.close()
 
