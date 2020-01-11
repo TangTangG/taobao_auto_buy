@@ -3,6 +3,8 @@ import os
 import json
 import sys
 from dateutil import parser as date_parse
+from functools import wraps
+
 if "logging" not in sys.modules:
     print("can't use module logging")
 else:
@@ -65,4 +67,22 @@ class Tools(object):
     def time_distance(current: str, target: str):
         logging.info(f"{date_parse.parse(target) - date_parse.parse(current)}")
 
-        
+class do_until_redirect(object):
+
+    def __init__(self, original_url, browser):
+
+        self.original_url = original_url
+        self.browser = browser    
+
+    def __call__(self, func):
+
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            while self.original_url:
+                try:
+                    result = func(*args, **kwargs)
+                    return result
+                except:
+                    pass
+
+        return wrapper
