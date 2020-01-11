@@ -1,9 +1,6 @@
 {
     "main_url": "https://www.taobao.com/",
     "target_url": "https://detail.tmall.com/item.htm?spm=a230r.1.14.6.4fa77d248C9XT9&id=609742525320&cm_id=140105335569ed55e27b&abbucket=15",
-    "amount_to_buy": 1,
-    "plan_to_buy": null,
-    "prop_check_list": [0,0],
     "buy_time": "2020-01-11 13:24:30"
 
 }
