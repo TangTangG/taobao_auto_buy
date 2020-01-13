@@ -23,7 +23,7 @@ pip3 install selenium==3.141.0
 5. configure config.json
 6. run
 ```
-python3 taobao.py
+python3 manage.py
 ```
 ## Configuration
 
