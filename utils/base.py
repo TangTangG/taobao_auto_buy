@@ -46,9 +46,6 @@ class AutoBuyBase(object):
         if self._is_url(url) and any([x in url for x in accepted_url_keyword]):
             return 0
         else:
-            print(url)
-            print([x in url for x in accepted_url_keyword])
-            print("taobao" in url)
             raise InvalidInputUrl("", "")
 
     def _validate_time(self, time):
@@ -90,7 +87,7 @@ class AutoBuyBase(object):
         opts = ChromeOptions()
         opts.add_experimental_option("detach", True)
         driver_dir = self._get_driver_dir()
-        print(driver_dir)
+        self._logger.info(f"using {driver_dir}")
         return Chrome(driver_dir, chrome_options=opts)
 
     def _wait_redirect(self, current_url):
@@ -102,6 +99,7 @@ class AutoBuyBase(object):
             raise e
 
     def _click_until_redirect(self, element, current_url):
+
         while current_url == self._browser.current_url:
             try:
                 element.click()
@@ -111,7 +109,10 @@ class AutoBuyBase(object):
     def _click_until_new_tab(self, element):
 
         while len(self._browser.window_handles) == 1:
-            element.click()
+            try:
+                element.click()
+            except:
+                continue
 
         self._browser.switch_to.window(self._browser.window_handles[1])
 
@@ -125,9 +126,11 @@ class AutoBuyBase(object):
         raise SubClassInvaild
 
     def _timer(self, buy_time):
+
         buy_time_raw = datetime.strptime(buy_time, "%Y-%m-%d %H:%M:%S")
         while datetime.now() < buy_time_raw:
             self._timer_printer(buy_time_raw)
 
     def _timer_printer(self, buy_time):
+
         print(f"{buy_time - datetime.now()}", end = "\r")

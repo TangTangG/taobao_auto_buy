@@ -19,12 +19,13 @@ class Taobao(AutoBuyBase):
 
     def _buy(self):
 
-
         buy_element = WebDriverWait(self._browser, 20).until(EC.presence_of_element_located((By.ID, "J_LinkBuy")))
-        buy_element.click()
-        buy_element = WebDriverWait(self._browser, 60).until(EC.element_to_be_clickable((By.ID, "J_LinkBuy")))
+        #buy_element.click()
 
         self._timer(self._buy_time)
+        self._logger.info(f"start race !")
+
+        buy_element = WebDriverWait(self._browser, 60).until(EC.element_to_be_clickable((By.ID, "J_LinkBuy")))
         self._click_until_redirect(buy_element, self._browser.current_url)
 
         self._checkout()
@@ -36,8 +37,8 @@ class Taobao(AutoBuyBase):
 
     def start(self):
 
+        self._logger.info("start")
         self._login()
         self._goto_detail()
-
         self._buy()
 

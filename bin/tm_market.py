@@ -23,7 +23,9 @@ class TM_Market(AutoBuyBase):
         buy_element = WebDriverWait(self._browser, 20).until(EC.presence_of_element_located((By.ID, "J_LinkBasket")))
 
         self._timer(self._buy_time)
-        buy_element = WebDriverWait(self._browser, 36000).until(EC.element_to_be_clickable((By.ID, "J_LinkBasket")))
+        self._logger.info("start race !")
+
+        buy_element = WebDriverWait(self._browser, 20).until(EC.element_to_be_clickable((By.ID, "J_LinkBasket")))
         buy_element.click()
         #self._click_until_redirect(buy_element, self._browser.current_url)
 
@@ -45,5 +47,4 @@ class TM_Market(AutoBuyBase):
 
         self._login()
         self._goto_detail()
-
         self._buy()
