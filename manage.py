@@ -21,7 +21,7 @@ def main():
         welcome("Command Line 参数读取成功", args.url, args.time)
         config = {"target_url" : args.url, "buy_time" : args.time}
     else:
-        config_path = "./config/config.json"
+        config_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "config/config.json"))
         config = read(config_path)
         welcome("Config Json 参数读取成功", config["target_url"], config["buy_time"])
 
