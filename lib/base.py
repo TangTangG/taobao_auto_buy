@@ -2,7 +2,7 @@ import logging
 import platform
 import os
 from datetime import datetime
-from taobao_auto_buy.utils.exceptions import SystemUnsupported, InvalidInputUrl, InvalidInputTime, SubClassInvaild
+from taobao_auto_buy.lib.exceptions import SystemUnsupported, InvalidInputUrl, InvalidInputTime, SubClassInvaild
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -10,13 +10,14 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, NoSuchAttributeException
 from selenium.webdriver import Chrome, ChromeOptions
 from urllib.parse import urlparse
+
 class AutoBuyBase(object):
 
     __slots__ = ["_main_url", "_target_url", "_logger", "_browser", "_buy_time"]
 
-    def __init__(self, main_url, target_url, buy_time):
+    def __init__(self, target_url, buy_time):
 
-        self._main_url = main_url
+        self._main_url = "https://www.taobao.com/"
         self._target_url = target_url
         self._buy_time = buy_time
 
@@ -46,14 +47,14 @@ class AutoBuyBase(object):
         if self._is_url(url) and any([x in url for x in accepted_url_keyword]):
             return 0
         else:
-            raise InvalidInputUrl("", "")
+            raise InvalidInputUrl()
 
     def _validate_time(self, time):
 
         try:
             datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
         except:
-            raise InvalidInputTime("", "")
+            raise InvalidInputTime()
 
     def _validate_input(self):
 
@@ -116,14 +117,13 @@ class AutoBuyBase(object):
 
         self._browser.switch_to.window(self._browser.window_handles[1])
 
-
     def _login(self):
 
-        raise SubClassInvaild
+        raise SubClassInvaild()
 
     def start(self):
 
-        raise SubClassInvaild
+        raise SubClassInvaild()
 
     def _timer(self, buy_time):
 

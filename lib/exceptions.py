@@ -1,8 +1,9 @@
 class SystemUnsupported(Exception):
-    def __init__(self, message, errors):
+
+    def __init__(self):
         message = "Didn't support your system"
         super().__init__(message)
-        self.errors = errors
+
 class SubClassInvaild(Exception):
 
     def __init__(self):
@@ -14,7 +15,6 @@ class InvalidInputUrl(Exception):
     def __init__(self):
         message = "Input url is not valid"
         super().__init__(message)
-
 
 class InvalidInputTime(Exception):
 

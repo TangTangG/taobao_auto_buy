@@ -1,9 +1,9 @@
-from taobao_auto_buy.utils.base import *
+from taobao_auto_buy.lib.base import *
 class Taobao(AutoBuyBase):
 
-    def __init__(self, main_url, target_url, buy_time):
+    def __init__(self, target_url, buy_time):
 
-        super().__init__(main_url, target_url, buy_time)
+        super().__init__(target_url, buy_time)
 
     def _login(self):
 
