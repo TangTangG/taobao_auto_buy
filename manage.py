@@ -3,10 +3,10 @@ import os
 import argparse
 import logging
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from taobao_auto_buy.bin.tb import Taobao
-from taobao_auto_buy.bin.tm_market import TM_Market
-from taobao_auto_buy.lib.utils import read, welcome
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
+from bin.tb import Taobao
+from bin.tm_market import TM_Market
+from lib.utils import read, welcome
 
 
 

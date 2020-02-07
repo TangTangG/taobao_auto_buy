@@ -1,4 +1,4 @@
-from taobao_auto_buy.lib.base import *
+from lib.base import *
 class TM_Market(AutoBuyBase):
 
     def __init__(self, target_url, buy_time):

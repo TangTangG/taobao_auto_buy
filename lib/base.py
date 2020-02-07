@@ -2,7 +2,7 @@ import logging
 import platform
 import os
 from datetime import datetime
-from taobao_auto_buy.lib.exceptions import SystemUnsupported, InvalidInputUrl, InvalidInputTime, SubClassInvaild
+from lib.exceptions import SystemUnsupported, InvalidInputUrl, InvalidInputTime, SubClassInvaild
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
