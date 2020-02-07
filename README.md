@@ -37,7 +37,7 @@ Or
      
 5. 命令行带参数运行 或者 修改config/config.json后运行
    * 命令行参数运行
-         python3 manage.py -u [target_url] -t [buy_time]
+         `python3 manage.py -u [target_url] -t [buy_time]`
    * 修改config/config.json
          修改 config/config.json 然后命令行运行 `python3 manage.py`
 
@@ -48,9 +48,9 @@ Or
     "buy_time": "2020-02-08 03:42:00"
 }
 ```
-target_url是商品链接
+**target_url**是商品链接
 
-buy_time是抢购时间, 需要严格按照示样格式填写
+**buy_time**是抢购时间, 需要严格按照示样格式填写
 
 ## 支持网站
 * 淘宝/天猫
