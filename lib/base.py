@@ -42,7 +42,7 @@ class AutoBuyBase(object):
 
     def _validate_url(self, url):
 
-        accepted_url_keyword = ["taobao", "jd", "tmall"]
+        accepted_url_keyword = ["taobao", "tmall"]
 
         if self._is_url(url) and any([x in url for x in accepted_url_keyword]):
             return 0

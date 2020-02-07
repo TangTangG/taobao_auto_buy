@@ -1,7 +1,7 @@
 class SystemUnsupported(Exception):
 
     def __init__(self):
-        message = "Didn't support your system"
+        message = "不支持您的系统"
         super().__init__(message)
 
 class SubClassInvaild(Exception):
@@ -13,11 +13,11 @@ class SubClassInvaild(Exception):
 class InvalidInputUrl(Exception):
 
     def __init__(self):
-        message = "Input url is not valid"
+        message = "商品链接无效, 请检查后重试"
         super().__init__(message)
 
 class InvalidInputTime(Exception):
 
     def __init__(self):
-        message = "Input time is not valid"
+        message = "抢购时间无效, 请按照格式重新输入"
         super().__init__(message)
