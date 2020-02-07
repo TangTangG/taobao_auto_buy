@@ -14,29 +14,36 @@
 ```
 git@github.com:Jesseslco/taobao_auto_buy.git
 ```
-2. install python3
-3. install requirements
+2. 安装python3
+3. 安装依赖package
 ```
 python3 -m pip install -r requirements.txt
 or
 pip3 install -r requirements.txt
 ```
-4. download chrome(version=79 or lastest) and chromedriver(need to be updated with chrome)
-   下载chrome(版本79或者最新) chromedriver(需要匹配chrome版本)
-5. run with command line or configure config.json
-   * Command Line
+4. 下载chrome(版本79或者最新) chromedriver(需要匹配chrome版本)
+   
+5. 命令行带参数运行 或者 修改config/config.json后运行
+   * 命令行参数运行
          python3 manage.py -u [target_url] -t [buy_time]
-   * configure config.json
-         modify the config/config.json then run `python3 manage.py`
+   * 修改config/config.json
+         修改 config/config.json 然后命令行运行 `python3 manage.py`
 
-## Configuration
+## config.json
+```
+{
+    "target_url": "https://detail.tmall.com/item.htm?spm=a230r.1.14.20.149872d0N6ViJZ&id=598418850958&ns=1&abbucket=9",
+    "buy_time": "2020-02-08 03:42:00"
+}
+```
+target_url是商品链接
+buy_time是抢购时间, 需要严格按照示样格式填写
 
-## Supported
 ## 支持网站
 * 淘宝/天猫
 * 天猫超市
 
-## Noticed
+
 ## 注意事项
 * 仅供学习交流使用, 勿商业用途
 * 有任何使用问题, 请raise a issue
