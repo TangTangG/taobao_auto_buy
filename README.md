@@ -2,6 +2,7 @@
 # taobao_auto_buy
 # 淘宝定时抢购
 # 多线程版本 支持同时抢购几个商品[Dev]
+### 目前需要多任务需要扫码几次, 后续再优化[TODO]
 ## Requirements
 ## 搭建环境
 * python3
