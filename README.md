@@ -1,7 +1,7 @@
 [![HitCount](http://hits.dwyl.io/Jesseslco/taobao_auto_buy.svg)](http://github.com/Jesseslco/taobao_auto_buy)
 # taobao_auto_buy
 # 淘宝定时抢购
-
+# 多线程版本 支持同时抢购几个商品[Dev]
 ## Requirements
 ## 搭建环境
 * python3
@@ -38,22 +38,22 @@ Or
      
        chromedriver_mac
      
-5. 命令行带参数运行 或者 修改config/config.json后运行
-   * 命令行参数运行
-         `python3 manage.py -u [target_url] -t [buy_time]`
+5. 修改config/config.json后运行
    * 修改config/config.json
          修改 config/config.json 然后命令行运行 `python3 manage.py`
 
 ## config.json
 ```
 {
-    "target_url": "https://detail.tmall.com/item.htm?spm=a230r.1.14.20.149872d0N6ViJZ&id=598418850958&ns=1&abbucket=9",
-    "buy_time": "2020-02-08 03:42:00"
+    "target_url": ["https://detail.tmall.com/item.htm?spm=a230r.1.14.20.149872d0N6ViJZ&id=598418850958&ns=1&abbucket=9", "https://detail.tmall.com/item.htm?spm=a230r.1.14.20.149872d0N6ViJZ&id=598418850958&ns=1&abbucket=9"],
+    "buy_time": ["2020-02-08 03:42:00", "2020-02-09 05:22:00"] 
 }
 ```
-**target_url**是商品链接
+**target_url**是商品链接的列表
 
-**buy_time**是抢购时间, 需要严格按照示样格式填写
+**buy_time**是抢购时间的列表, 需要严格按照示样格式填写
+
+target_url 和 抢购时间 一一对应
 
 ## 支持网站
 * 淘宝/天猫
